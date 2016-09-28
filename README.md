@@ -27,7 +27,7 @@ Downloads located on [CurseForge](https://minecraft.curseforge.com/projects/rice
 
 If you found any bug on this mod please report it:
 
-1- Make sure your issue hasn't already been fixed and that it hasn't been reported it
+1. Make sure your issue hasn't already been fixed and that it hasn't been reported it
 2. Go to [the issues page](https://github.com/KewaiiGamer/RiceCraftingTable/issues) and click [new issue](https://github.com/AppliedEnergistics/Applied-Energistics-2/issues/new)
 3. Enter your a title of your issue (something that summarizes your issue), and then create a detailed description of the issue.
     * Do not tag it with something like `[Feature]` or `[Bug]`. When it is applicable, we will take care of it.
