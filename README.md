@@ -69,5 +69,5 @@ How to:
 
 ## Credits
 
-* vincenmet for helping me with some parts of the ode
+* vincenmet for helping me with some parts of the code
 * [thebritishbrotherhood69](https://www.twitch.tv/thebritishbrotherhood) for making ALL the texture and for being such a good streamer 
