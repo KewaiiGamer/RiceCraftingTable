@@ -1,0 +1,16 @@
+[
+{
+  "modid": "rice",
+  "name": "Rice",
+  "description": "A 9x9 crafting table for all your hardcore needs.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["KewaiiGamer", "TheBritishBrotherhood", "vincentmet"],
+  "credits": "SpitefulFox, TTFTCUTS, ",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
