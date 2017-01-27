@@ -1,7 +1,8 @@
 package kewaiigamer.rice.gui.ricecraftingtable;
 
-
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;
+import kewaiigamer.rice.gui.ItemCraftHandler;
+import kewaiigamer.rice.gui.SlotCraftingItemHandler;
 import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import kewaiigamer.rice.tile.inventory.ricecraftingtable.InventoryRiceCraftResult;
 import kewaiigamer.rice.tile.inventory.ricecraftingtable.InventoryRiceCrafting;
@@ -9,34 +10,30 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nullable;
 
 public class ContainerExtremeCrafting extends Container {
 
-    /**
-     * The crafting matrix inventory (9x9).
-     */
     public InventoryCrafting craftMatrix;
     public IInventory craftResult;
-    private World worldObj;
-    private int posX;
-    private int posY;
-    private int posZ;
     private TileEntityRiceCrafting te;
+    private IItemHandler handler;
 
     public ContainerExtremeCrafting(InventoryPlayer player, TileEntityRiceCrafting te) {
         this.te = te;
+        handler = te.matrix;
         craftMatrix = new InventoryRiceCrafting(this, te);
         craftResult = new InventoryRiceCraftResult(te);
-        this.addSlotToContainer(new SlotCrafting(player.player, this.craftMatrix, this.craftResult, 0, 210, 80));
+        this.addSlotToContainer(new SlotCraftingItemHandler(player.player, this.craftMatrix, this.craftResult, 0, 210, 80));
         int wy;
         int ex;
 
         for (wy = 0; wy < 9; ++wy) {
             for (ex = 0; ex < 9; ++ex) {
-                this.addSlotToContainer(new Slot(this.craftMatrix, ex + wy * 9, 12 + ex * 18, 8 + wy * 18));
+                this.addSlotToContainer(new SlotItemHandler(handler, ex + wy * 9, 12 + ex * 18, 8 + wy * 18));
             }
         }
 
@@ -51,14 +48,14 @@ public class ContainerExtremeCrafting extends Container {
         }
 
         this.onCraftMatrixChanged(this.craftMatrix);
+        ((ItemCraftHandler)handler).crafting = craftMatrix;
     }
-
 
     /**
      * Callback for when the crafting matrix is changed.
      */
     public void onCraftMatrixChanged(IInventory matrix) {
-        this.craftResult.setInventorySlotContents(0, ExtremeCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+        this.craftResult.setInventorySlotContents(0, ExtremeCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, te.getWorld()));
     }
 
     /**
@@ -70,10 +67,9 @@ public class ContainerExtremeCrafting extends Container {
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer playerIn) {
-        return te.isUseableByPlayer(playerIn);
+    public boolean canInteractWith(EntityPlayer player) {
+        return te.isUseableByPlayer(player);
     }
-
 
     /**
      * Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.
@@ -122,5 +118,4 @@ public class ContainerExtremeCrafting extends Container {
 
         return itemstack;
     }
-
 }

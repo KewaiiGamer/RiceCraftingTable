@@ -4,21 +4,24 @@ import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
 
 public class InventoryRiceCrafting extends InventoryCrafting {
 
     public TileEntityRiceCrafting craft;
-    private Container container;
+    private IItemHandler handler;
+    public Container container;
 
-    public InventoryRiceCrafting(Container cont, TileEntityRiceCrafting table) {
-        super(cont, 9, 9);
-        craft = table;
-        container = cont;
+    public InventoryRiceCrafting(Container container, TileEntityRiceCrafting te) {
+        super(container, 9, 9);
+        craft = te;
+        handler = te.matrix;
+        this.container = container;
     }
 
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return slot >= this.getSizeInventory() ? null : craft.getStackInSlot(slot + 1);
+        return slot >= this.getSizeInventory() ? null : handler.getStackInSlot(slot);
     }
 
     @Override
@@ -33,19 +36,22 @@ public class InventoryRiceCrafting extends InventoryCrafting {
 
     @Override
     public ItemStack decrStackSize(int slot, int decrement) {
-        ItemStack stack = craft.getStackInSlot(slot + 1);
+        ItemStack stack = handler.getStackInSlot(slot);
+        this.container.onCraftMatrixChanged(this);
+        System.out.println("Decrease Stack Size");
         if (stack != null) {
             ItemStack itemstack;
             if (stack.stackSize <= decrement) {
                 itemstack = stack.copy();
                 stack = null;
-                craft.setInventorySlotContents(slot + 1, null);
+                craft.setInventorySlotContents(slot, null);
                 this.container.onCraftMatrixChanged(this);
                 return itemstack;
             } else {
                 itemstack = stack.splitStack(decrement);
                 if (stack.stackSize == 0) {
                     stack = null;
+                    craft.setInventorySlotContents(slot, null);
                 }
                 this.container.onCraftMatrixChanged(this);
                 return itemstack;
@@ -55,10 +61,20 @@ public class InventoryRiceCrafting extends InventoryCrafting {
         }
     }
 
-    @Override
-    public void setInventorySlotContents(int slot, ItemStack itemstack) {
-        craft.setInventorySlotContents(slot + 1, itemstack);
+    public void craft()
+    {
+        for (int i = 0; i < handler.getSlots(); i++) {
+            if(handler.getStackInSlot(i) != null)
+            {
+                handler.extractItem(i, 1, false);
+            }
+        }
         this.container.onCraftMatrixChanged(this);
     }
 
+    @Override
+    public void setInventorySlotContents(int slot, ItemStack itemstack) {
+        craft.setInventorySlotContents(slot, itemstack);
+        this.container.onCraftMatrixChanged(this);
+    }
 }

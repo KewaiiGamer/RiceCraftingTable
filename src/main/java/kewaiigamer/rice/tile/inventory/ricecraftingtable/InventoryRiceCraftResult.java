@@ -4,25 +4,29 @@ import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.item.ItemStack;
 
+
 public class InventoryRiceCraftResult extends InventoryCraftResult {
 
     private TileEntityRiceCrafting craft;
 
-    public InventoryRiceCraftResult(TileEntityRiceCrafting table) {
-        craft = table;
+    public InventoryRiceCraftResult(TileEntityRiceCrafting te)
+    {
+        craft = te;
+
     }
 
     @Override
-    public ItemStack getStackInSlot(int par1) {
-        return craft.getStackInSlot(0);
+    public ItemStack getStackInSlot(int slot) {
+        return slot == 0 ? craft.getResult() : null;
     }
 
     @Override
-    public ItemStack decrStackSize(int par1, int par2) {
-        ItemStack stack = craft.getStackInSlot(0);
+    public ItemStack decrStackSize(int slot, int decrement) {
+        //return craft.decrStackSize(slot, decrement);
+        ItemStack stack = craft.getResult();
         if (stack != null) {
             ItemStack itemstack = stack;
-            craft.setInventorySlotContents(0, null);
+            craft.setResult(null);
             return itemstack;
         } else {
             return null;
@@ -30,8 +34,7 @@ public class InventoryRiceCraftResult extends InventoryCraftResult {
     }
 
     @Override
-    public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
-        craft.setInventorySlotContents(0, par2ItemStack);
+    public void setInventorySlotContents(int slot, ItemStack stack) {
+        craft.setResult(stack);
     }
-
 }

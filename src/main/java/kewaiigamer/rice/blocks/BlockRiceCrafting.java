@@ -11,8 +11,8 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -25,6 +25,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.CapabilityItemHandler;
 
 public class BlockRiceCrafting extends Block implements ITileEntityProvider {
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
@@ -70,7 +71,11 @@ public class BlockRiceCrafting extends Block implements ITileEntityProvider {
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntityRiceCrafting craft = (TileEntityRiceCrafting) worldIn.getTileEntity(pos);
         if (craft instanceof TileEntityRiceCrafting) {
-            InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityRiceCrafting) craft);
+            //InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityRiceCrafting) craft);
+            for(int i = 0; i < 81; i++){
+                worldIn.spawnEntityInWorld(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(),
+                        craft.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).getStackInSlot(i)));
+            }
         }
 
         super.breakBlock(worldIn, pos, state);

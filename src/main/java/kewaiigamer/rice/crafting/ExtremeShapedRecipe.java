@@ -35,9 +35,7 @@ public class ExtremeShapedRecipe implements IRecipe {
     }
 
     @Override
-    public ItemStack[] getRemainingItems(InventoryCrafting inv) {
-        return new ItemStack[0];
-    }
+    public ItemStack[] getRemainingItems(InventoryCrafting inv) {return new ItemStack[0]; }
 
     /**
      * Used to check if a recipe matches current crafting inventory
