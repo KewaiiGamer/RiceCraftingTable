@@ -34,7 +34,6 @@ public class Rice {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         Rice.proxy.init(e);
-        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.BEEF), new ItemStack(Items.DIAMOND));
     }
 
     @EventHandler
