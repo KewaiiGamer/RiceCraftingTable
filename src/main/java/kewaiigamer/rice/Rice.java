@@ -1,5 +1,8 @@
 package kewaiigamer.rice;
 
+import kewaiigamer.rice.crafting.ExtremeCraftingManager;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
