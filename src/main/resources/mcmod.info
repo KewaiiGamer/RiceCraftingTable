@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["KewaiiGamer", "TheBritishBrotherhood", "vincentmet"],
-  "credits": "SpitefulFox, TTFTCUTS, ",
+  "authorList": ["KewaiiGamer"],
+  "credits": "SpitefulFox, TTFTCUTS, ExpensiveKoala",
   "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []

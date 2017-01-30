@@ -16,7 +16,7 @@ public class Rice {
 
     public static final String MODID = "rice";
     public static final String NAME = "Rice";
-    public static final String VERSION = "Beta-2";
+    public static final String VERSION = "0.8";
     public static final String COMMON_PROXY_CLASS = "kewaiigamer.rice.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "kewaiigamer.rice.ClientProxy";
     @Instance(MODID)
