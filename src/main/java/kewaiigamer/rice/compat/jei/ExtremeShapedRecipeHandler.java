@@ -4,6 +4,7 @@ package kewaiigamer.rice.compat.jei;
 import kewaiigamer.rice.crafting.ExtremeShapedRecipe;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
 public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedRecipe>{
@@ -19,7 +20,7 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedR
 
     @Override
     public String getRecipeCategoryUid(ExtremeShapedRecipe recipe) {
-        return ExtremeCraftingCategory.TITLE;
+        return ExtremeCraftingCategory.UID;
     }
 
     @Override
@@ -29,12 +30,12 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedR
 
     @Override
     public boolean isRecipeValid(ExtremeShapedRecipe recipe) {
+
         if(recipe.getRecipeOutput() == null)
             return false;
 
         int inputCount = 0;
-        for (ItemStack input :
-                recipe.recipeItems) {
+        for (ItemStack input : recipe.recipeItems) {
             if (input != null)
                 inputCount++;
         }

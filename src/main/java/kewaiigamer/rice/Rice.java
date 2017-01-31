@@ -1,6 +1,7 @@
 package kewaiigamer.rice;
 
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +35,7 @@ public class Rice {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         Rice.proxy.init(e);
+        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.DIAMOND),new ItemStack(Blocks.DIRT),new ItemStack(Blocks.DIRT));
     }
 
     @EventHandler

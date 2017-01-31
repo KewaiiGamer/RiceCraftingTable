@@ -3,6 +3,7 @@ package kewaiigamer.rice.compat.jei;
 import kewaiigamer.rice.crafting.ExtremeShapelessRecipe;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
 public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShapelessRecipe>{
@@ -18,8 +19,9 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
 
     @Override
     public String getRecipeCategoryUid(ExtremeShapelessRecipe recipe) {
-        return ExtremeCraftingCategory.TITLE;
+        return ExtremeCraftingCategory.UID;
     }
+
 
     @Override
     public IRecipeWrapper getRecipeWrapper(ExtremeShapelessRecipe recipe) {

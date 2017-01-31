@@ -1,12 +1,10 @@
 package kewaiigamer.rice.compat.jei;
 
 import kewaiigamer.rice.crafting.ExtremeShapelessRecipe;
-import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
 import mezz.jei.api.recipe.wrapper.ICraftingRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ShapelessRecipes;
 
 public class ExtremeShapelessRecipeWrapper extends BlankRecipeWrapper implements ICraftingRecipeWrapper{
 

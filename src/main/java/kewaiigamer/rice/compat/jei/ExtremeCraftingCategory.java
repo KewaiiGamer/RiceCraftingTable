@@ -11,6 +11,7 @@ import mezz.jei.api.recipe.BlankRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import mezz.jei.api.recipe.wrapper.ICustomCraftingRecipeWrapper;
 import mezz.jei.api.recipe.wrapper.IShapedCraftingRecipeWrapper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -42,7 +43,7 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
 
     @Override
     public String getTitle() {
-        return null;
+        return I18n.format(TITLE);
     }
 
     @Override
@@ -54,7 +55,7 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-        guiItemStacks.init(0, false, 94, 18);
+        guiItemStacks.init(0, false, 209 - 11, 79 - 7);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
