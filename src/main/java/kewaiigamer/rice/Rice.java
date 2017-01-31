@@ -35,7 +35,13 @@ public class Rice {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         Rice.proxy.init(e);
-        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.DIAMOND),new ItemStack(Blocks.DIRT),new ItemStack(Blocks.DIRT));
+        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.DIAMOND), new ItemStack(Blocks.DIRT), new ItemStack(Blocks.DIRT));
+        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(new ItemStack(Blocks.DIAMOND_BLOCK), new String[]{
+                        "AAA      ",
+                        "         ",
+                        "         "},
+                'A', Items.DIAMOND);
+
     }
 
     @EventHandler

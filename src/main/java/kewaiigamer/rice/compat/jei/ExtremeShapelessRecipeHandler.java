@@ -34,8 +34,7 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
             return false;
 
         int inputCount = 0;
-        for (Object input :
-                recipe.recipeItems) {
+        for (Object input : recipe.recipeItems) {
             if(input instanceof ItemStack) {
                 if (input != null)
                     inputCount++;
