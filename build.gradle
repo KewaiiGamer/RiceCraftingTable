@@ -1,7 +1,9 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { 
+			url = "http://files.minecraftforge.net/maven" 
+		}
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
@@ -33,6 +35,12 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories{
+	maven {
+		url = "http://dvs1.progwml6.com/files/maven"
+	}
+}
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
@@ -54,7 +62,9 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+	
+	deobfCompile "mezz.jei:jei_1.10.2:3.14.0.395:api"
+	runtime "mezz.jei:jei_1.10.2:3.14.0.395"
 }
 
 processResources
