@@ -2,6 +2,7 @@ package kewaiigamer.rice.compat.minetweaker;
 
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;
 import kewaiigamer.rice.crafting.ExtremeShapedOreRecipe;
+import kewaiigamer.rice.crafting.ExtremeShapelessRecipe;
 import minetweaker.IUndoableAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.api.item.IIngredient;
@@ -14,13 +15,16 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
+import java.util.Arrays;
+import java.util.List;
+
 @ZenClass("mods.rice.ExtremeCrafting")
 public class ExtremeCrafting {
 
     @ZenMethod
     public static void addShapeless(IItemStack output, IIngredient[] ingredients) {
 
-        MineTweakerAPI.apply(new Add(new ShapelessOreRecipe(toStack(output), toObjects(ingredients))));
+        MineTweakerAPI.apply(new Add(new ExtremeShapelessRecipe(toStack(output), toList(ingredients))));
     }
 
     @ZenMethod
@@ -168,6 +172,11 @@ public class ExtremeCrafting {
             ingredients[x] = toObject(list[x]);
         }
         return ingredients;
+    }
+
+    private static List toList(IIngredient[] list)
+    {
+        return Arrays.asList(toObjects(list));
     }
 
     private static Object toActualObject(IIngredient ingredient) {

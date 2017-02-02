@@ -41,6 +41,7 @@ public class Rice {
                         "         ",
                         "         "},
                 'A', Items.DIAMOND);
+        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.STICK), new ItemStack(Blocks.STONE), new ItemStack(Blocks.DIRT));
 
     }
 

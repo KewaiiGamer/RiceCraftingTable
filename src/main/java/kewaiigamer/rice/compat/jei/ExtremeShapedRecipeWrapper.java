@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper implements IShapedCraftingRecipeWrapper{
+public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper {
 
     private final ExtremeShapedOreRecipe recipe;
 
@@ -26,16 +26,6 @@ public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper implements IS
                 }
             }
         }
-    }
-
-    @Override
-    public int getWidth() {
-        return 9;
-    }
-
-    @Override
-    public int getHeight() {
-        return 9;
     }
 
     @Override

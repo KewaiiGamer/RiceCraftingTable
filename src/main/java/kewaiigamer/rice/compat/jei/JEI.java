@@ -35,6 +35,5 @@ public class JEI extends BlankModPlugin{
         recipeTransferRegistry.addRecipeTransferHandler(ContainerExtremeCrafting.class, ExtremeCraftingCategory.UID, 1, 81, 82, 36);
 
         registry.addRecipes(ExtremeCraftingManager.getInstance().getRecipeList());
-        System.out.println("Registered JEI : " + ExtremeCraftingManager.getInstance().getRecipeList().size());
     }
 }

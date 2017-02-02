@@ -9,8 +9,6 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import mezz.jei.api.recipe.wrapper.ICustomCraftingRecipeWrapper;
-import mezz.jei.api.recipe.wrapper.IShapedCraftingRecipeWrapper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -60,23 +58,13 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 int index = 1 + j + (i * 9);
-                guiItemStacks.init(index, true, j * 18, j * 18);
+                guiItemStacks.init(index, true, j * 18, i * 18);
             }
         }
-
         List<List<ItemStack>> inputs = ingredients.getInputs(ItemStack.class);
         List<ItemStack> outputs = ingredients.getOutputs(ItemStack.class);
 
-        if(recipeWrapper instanceof IShapedCraftingRecipeWrapper)
-        {
-            IShapedCraftingRecipeWrapper wrapper = (IShapedCraftingRecipeWrapper) recipeWrapper;
-            craftingGridHelper.setInputStacks(guiItemStacks, inputs, wrapper.getWidth(), wrapper.getHeight());
-            craftingGridHelper.setOutput(guiItemStacks, outputs);
-        }
-        else
-        {
-            craftingGridHelper.setInputStacks(guiItemStacks, inputs);
-            craftingGridHelper.setOutput(guiItemStacks, outputs);
-        }
+        craftingGridHelper.setInputStacks(guiItemStacks, inputs);
+        craftingGridHelper.setOutput(guiItemStacks, outputs);
     }
 }
