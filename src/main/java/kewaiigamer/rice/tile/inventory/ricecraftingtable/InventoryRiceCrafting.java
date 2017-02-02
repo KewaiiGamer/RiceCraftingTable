@@ -2,11 +2,13 @@ package kewaiigamer.rice.tile.inventory.ricecraftingtable;
 
 import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.IItemHandler;
 
-public class InventoryRiceCrafting extends InventoryCrafting {
+public class InventoryRiceCrafting extends InventoryCrafting implements ISidedInventory {
 
     public TileEntityRiceCrafting craft;
     private IItemHandler handler;
@@ -76,5 +78,20 @@ public class InventoryRiceCrafting extends InventoryCrafting {
     public void setInventorySlotContents(int slot, ItemStack itemstack) {
         craft.setInventorySlotContents(slot, itemstack);
         this.container.onCraftMatrixChanged(this);
+    }
+
+    @Override
+    public int[] getSlotsForFace(EnumFacing side) {
+        return new int[0];
+    }
+
+    @Override
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return false;
+    }
+
+    @Override
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return true;
     }
 }

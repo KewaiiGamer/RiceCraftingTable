@@ -68,6 +68,9 @@ public class BlockRiceCrafting extends Block implements ITileEntityProvider {
         return new TileEntityRiceCrafting();
     }
 
+    /**
+     Fix item dropping on block broken
+     */
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntityRiceCrafting craft = (TileEntityRiceCrafting) worldIn.getTileEntity(pos);
         if (craft instanceof TileEntityRiceCrafting) {

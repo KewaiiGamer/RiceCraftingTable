@@ -8,7 +8,10 @@ import kewaiigamer.rice.tile.inventory.ricecraftingtable.InventoryRiceCraftResul
 import kewaiigamer.rice.tile.inventory.ricecraftingtable.InventoryRiceCrafting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -21,6 +24,7 @@ public class ContainerExtremeCrafting extends Container {
     public IInventory craftResult;
     private TileEntityRiceCrafting te;
     private IItemHandler handler;
+
 
     public ContainerExtremeCrafting(InventoryPlayer player, TileEntityRiceCrafting te) {
         this.te = te;

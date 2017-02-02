@@ -1,4 +1,4 @@
-package kewaiigamer.rice.compat.minetweaker;
+package kewaiigamer.rice.compat.crafttweaker.handlers;
 
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;
 import kewaiigamer.rice.crafting.ExtremeShapedOreRecipe;
