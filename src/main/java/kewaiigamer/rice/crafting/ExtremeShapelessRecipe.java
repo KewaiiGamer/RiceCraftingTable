@@ -80,16 +80,4 @@ public class ExtremeShapelessRecipe implements IRecipe {
     public int getRecipeSize() {
         return this.recipeItems.size();
     }
-
-    @Override
-    public String toString() {
-        String s = "Crafts: " + recipeOutput.getDisplayName() + ": ";
-
-        for (Object o : recipeItems) {
-            if(o != null)
-                s += o.toString() + ", ";
-        }
-
-        return s;
-    }
 }

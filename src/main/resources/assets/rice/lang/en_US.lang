@@ -1,3 +1,4 @@
 tile.rice:rice_crafting_table.name=Rice Crafting Table
 tile.rice:rice_auto_crafting_table.name=Rice Auto Crafting Table
 itemGroup.Rice=Rice Crafting Table
+rice.crafting.name=Extreme Crafting

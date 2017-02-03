@@ -1,4 +1,4 @@
-package kewaiigamer.rice.compat.crafttweaker;
+package kewaiigamer.rice.compat.minetweaker;
 
 import minetweaker.MineTweakerAPI;
 

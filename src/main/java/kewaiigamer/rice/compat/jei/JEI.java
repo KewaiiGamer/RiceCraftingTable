@@ -13,6 +13,9 @@ import net.minecraft.item.ItemStack;
 
 @JEIPlugin
 public class JEI extends BlankModPlugin{
+
+    public static IRecipeRegistry recipeRegistry;
+
     @Override
     public void register(IModRegistry registry) {
         IJeiHelpers jeiHelpers = registry.getJeiHelpers();
@@ -34,6 +37,12 @@ public class JEI extends BlankModPlugin{
         IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
         recipeTransferRegistry.addRecipeTransferHandler(ContainerExtremeCrafting.class, ExtremeCraftingCategory.UID, 1, 81, 82, 36);
 
+
         registry.addRecipes(ExtremeCraftingManager.getInstance().getRecipeList());
+    }
+
+    @Override
+    public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+        recipeRegistry = jeiRuntime.getRecipeRegistry();
     }
 }

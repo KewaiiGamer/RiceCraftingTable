@@ -20,8 +20,8 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
     public static final String UID = "rice.crafting";
     public static final String TITLE = "rice.crafting.name";
 
-    public static final int WIDTH = 220;
-    public static final int HEIGHT = 162;
+    public static final int WIDTH = 162;
+    public static final int HEIGHT = 199;
 
     private final IDrawable background;
     //private final String localizedName;
@@ -29,8 +29,8 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
 
     public ExtremeCraftingCategory(IGuiHelper guiHelper)
     {
-        ResourceLocation location = new ResourceLocation(Rice.MODID, "textures/gui/rice_crafting_gui.png");
-        background = guiHelper.createDrawable(location, 11, 7, WIDTH, HEIGHT);
+        ResourceLocation location = new ResourceLocation(Rice.MODID, "textures/gui/rice_crafting_gui_jei.png");
+        background = guiHelper.createDrawable(location, 0, 0, WIDTH, HEIGHT);
         craftingGridHelper = guiHelper.createCraftingGridHelper(1, 0);
     }
 
@@ -53,7 +53,7 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-        guiItemStacks.init(0, false, 209 - 11, 79 - 7);
+        guiItemStacks.init(0, false, 71, 176);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -61,6 +61,14 @@ public class ExtremeCraftingCategory extends BlankRecipeCategory<IRecipeWrapper>
                 guiItemStacks.init(index, true, j * 18, i * 18);
             }
         }
+
+        recipeLayout.setRecipeTransferButton(145, 185);
+
+        /* Uncomment once updated to 1.11+
+        if(recipeWrapper instanceof ExtremeShapelessRecipeWrapper)
+            recipeLayout.setShapeless();
+        */
+
         List<List<ItemStack>> inputs = ingredients.getInputs(ItemStack.class);
         List<ItemStack> outputs = ingredients.getOutputs(ItemStack.class);
 

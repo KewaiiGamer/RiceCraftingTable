@@ -32,7 +32,7 @@ public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper {
     public void getIngredients(IIngredients ingredients) {
         List<ItemStack> recipeItems = new ArrayList<>();
         for (Object object : recipe.getInput()) {
-                recipeItems.add((ItemStack)object);
+            recipeItems.add((ItemStack)object);
         }
         ItemStack recipeOutput = recipe.getRecipeOutput();
         ingredients.setInputs(ItemStack.class, recipeItems);

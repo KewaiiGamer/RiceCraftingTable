@@ -1,5 +1,6 @@
-package kewaiigamer.rice.compat.crafttweaker;
+package kewaiigamer.rice.compat.minetweaker;
 
+import kewaiigamer.rice.compat.jei.JEI;
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;
 import kewaiigamer.rice.crafting.ExtremeShapedOreRecipe;
 import kewaiigamer.rice.crafting.ExtremeShapelessRecipe;
@@ -10,6 +11,7 @@ import minetweaker.api.item.IItemStack;
 import minetweaker.api.oredict.IOreDictEntry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.oredict.OreDictionary;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
@@ -43,7 +45,6 @@ public class ExtremeCrafting {
         }
 
         MineTweakerAPI.apply(new Add(new ExtremeShapedOreRecipe(toStack(output), input, width, height)));
-
     }
 
     @ZenMethod
@@ -60,8 +61,11 @@ public class ExtremeCrafting {
 
         @Override
         public void apply() {
-
             ExtremeCraftingManager.getInstance().getRecipeList().add(recipe);
+            if(Loader.isModLoaded("JEI") && JEI.recipeRegistry != null) {
+                JEI.recipeRegistry.addRecipe(recipe);
+            }
+
         }
 
         @Override
@@ -72,6 +76,8 @@ public class ExtremeCrafting {
         @Override
         public void undo() {
             ExtremeCraftingManager.getInstance().getRecipeList().remove(recipe);
+            if(Loader.isModLoaded("JEI") && JEI.recipeRegistry!=null)
+                JEI.recipeRegistry.removeRecipe(recipe);
         }
 
         @Override
@@ -108,6 +114,8 @@ public class ExtremeCrafting {
                     if (craft.getRecipeOutput().isItemEqual(remove)) {
                         recipe = craft;
                         ExtremeCraftingManager.getInstance().getRecipeList().remove(obj);
+                        if(Loader.isModLoaded("JEI") && JEI.recipeRegistry!=null)
+                            JEI.recipeRegistry.removeRecipe(recipe);
                         break;
                     }
                 }
@@ -122,6 +130,8 @@ public class ExtremeCrafting {
         @Override
         public void undo() {
             ExtremeCraftingManager.getInstance().getRecipeList().add(recipe);
+            if(Loader.isModLoaded("JEI") && JEI.recipeRegistry!=null)
+                JEI.recipeRegistry.addRecipe(recipe);
         }
 
         @Override
