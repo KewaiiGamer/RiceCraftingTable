@@ -30,7 +30,6 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
 
     @Override
     public boolean isRecipeValid(ExtremeShapelessRecipe recipe) {
-        System.out.print(recipe + ": ");
         if(recipe.getRecipeOutput() == null)
             return false;
 
@@ -45,7 +44,6 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
 
         if(inputCount > 81)
             return false;
-        System.out.println("Passed!");
 
         return inputCount > 0;
     }

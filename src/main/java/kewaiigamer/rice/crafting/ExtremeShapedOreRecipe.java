@@ -238,16 +238,4 @@ public class ExtremeShapedOreRecipe implements IRecipe {
     public Object[] getInput() {
         return this.input;
     }
-
-    @Override
-    public String toString() {
-        String s = "Crafts: " + output.getDisplayName() + ": ";
-
-        for (Object o : input) {
-            if(o != null)
-                s += o.toString() + ", ";
-        }
-
-        return s;
-    }
 }

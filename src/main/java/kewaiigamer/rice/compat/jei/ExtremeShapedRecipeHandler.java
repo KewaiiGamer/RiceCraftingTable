@@ -32,7 +32,6 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedO
 
     @Override
     public boolean isRecipeValid(ExtremeShapedOreRecipe recipe) {
-        System.out.println(recipe + ": ");
         if(recipe.getRecipeOutput() == null)
             return false;
         int inputCount = 0;
@@ -46,7 +45,6 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedO
         }
         if(inputCount > 81)
             return false;
-        System.out.println("Passed");
 
         return inputCount > 0;
     }
