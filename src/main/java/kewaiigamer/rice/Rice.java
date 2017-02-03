@@ -1,5 +1,9 @@
 package kewaiigamer.rice;
 
+import kewaiigamer.rice.crafting.ExtremeCraftingManager;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -13,7 +17,7 @@ public class Rice {
 
     public static final String MODID = "rice";
     public static final String NAME = "Rice";
-    public static final String VERSION = "0.9";
+    public static final String VERSION = "0.8";
     public static final String COMMON_PROXY_CLASS = "kewaiigamer.rice.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "kewaiigamer.rice.ClientProxy";
     @Instance(MODID)
@@ -31,6 +35,14 @@ public class Rice {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         Rice.proxy.init(e);
+        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.DIAMOND), new ItemStack(Blocks.DIRT), new ItemStack(Blocks.DIRT));
+        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(new ItemStack(Blocks.DIAMOND_BLOCK), new String[]{
+                        "AAA      ",
+                        "         ",
+                        "         "},
+                'A', Items.DIAMOND);
+        ExtremeCraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.STICK), new ItemStack(Blocks.STONE), new ItemStack(Blocks.DIRT));
+
     }
 
     @EventHandler

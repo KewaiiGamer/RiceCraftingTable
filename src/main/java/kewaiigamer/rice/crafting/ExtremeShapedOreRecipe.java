@@ -9,10 +9,8 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import javax.annotation.Nonnull;
+import java.util.*;
 
 public class ExtremeShapedOreRecipe implements IRecipe {
     //Added in for future ease of change, but hard coded for now.
@@ -166,7 +164,7 @@ public class ExtremeShapedOreRecipe implements IRecipe {
      * Used to check if a recipe matches current crafting inventory
      */
     @Override
-    public boolean matches(InventoryCrafting inv, World world) {
+    public boolean matches(@Nonnull InventoryCrafting inv,@Nonnull World world) {
         for (int x = 0; x <= MAX_CRAFT_GRID_WIDTH - width; x++) {
             for (int y = 0; y <= MAX_CRAFT_GRID_HEIGHT - height; ++y) {
                 if (checkMatch(inv, x, y, false)) {
@@ -204,10 +202,10 @@ public class ExtremeShapedOreRecipe implements IRecipe {
                     if (!OreDictionary.itemMatches((ItemStack) target, slot, false)) {
                         return false;
                     }
-                } else if (target instanceof ArrayList) {
+                } else if (target instanceof List) {
                     boolean matched = false;
 
-                    Iterator<ItemStack> itr = ((ArrayList<ItemStack>) target).iterator();
+                    Iterator<ItemStack> itr = ((List<ItemStack>) target).iterator();
                     while (itr.hasNext() && !matched) {
                         matched = OreDictionary.itemMatches(itr.next(), slot, false);
                     }
@@ -237,5 +235,17 @@ public class ExtremeShapedOreRecipe implements IRecipe {
      */
     public Object[] getInput() {
         return this.input;
+    }
+
+    @Override
+    public String toString() {
+        String s = "Crafts: " + output.getDisplayName() + ": ";
+
+        for (Object o : input) {
+            if(o != null)
+                s += o.toString() + ", ";
+        }
+
+        return s;
     }
 }
