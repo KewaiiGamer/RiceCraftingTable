@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
+
 import java.util.*;
 
 public class ExtremeShapedOreRecipe implements IRecipe {

@@ -1,8 +1,8 @@
-package kewaiigamer.rice.compat.minetweaker;
+package kewaiigamer.rice.compat.crafttweaker;
 
 import minetweaker.MineTweakerAPI;
 
-public class MineTweaker {
+public class CraftTweaker {
     public static void registerModCompat() {
         MineTweakerAPI.registerClass(ExtremeCrafting.class);
     }

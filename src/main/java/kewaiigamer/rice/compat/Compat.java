@@ -1,5 +1,6 @@
 package kewaiigamer.rice.compat;
-import kewaiigamer.rice.compat.minetweaker.MineTweaker;
+
+import kewaiigamer.rice.compat.crafttweaker.CraftTweaker;
 import net.minecraftforge.fml.common.Loader;
 
 public class Compat {
@@ -12,7 +13,7 @@ public class Compat {
 
     public static void registerModsCompat() {
         if (CompatMT) {
-            MineTweaker.registerModCompat();
+            CraftTweaker.registerModCompat();
         }
     }
 }

@@ -3,13 +3,24 @@ package kewaiigamer.rice.compat.jei;
 
 import kewaiigamer.rice.crafting.ExtremeShapedOreRecipe;
 import kewaiigamer.rice.crafting.ExtremeShapedRecipe;
+import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.util.List;
+
 public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedOreRecipe>{
+
+    private IJeiHelpers jeiHelpers;
+
+    public ExtremeShapedRecipeHandler(IJeiHelpers jeiHelpers)
+    {
+        this.jeiHelpers = jeiHelpers;
+    }
+
     @Override
     public Class<ExtremeShapedOreRecipe> getRecipeClass() {
         return ExtremeShapedOreRecipe.class;
@@ -27,7 +38,7 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedO
 
     @Override
     public IRecipeWrapper getRecipeWrapper(ExtremeShapedOreRecipe recipe) {
-        return new ExtremeShapedRecipeWrapper(recipe);
+        return new ExtremeShapedRecipeWrapper(jeiHelpers, recipe);
     }
 
     @Override
@@ -37,10 +48,11 @@ public class ExtremeShapedRecipeHandler implements IRecipeHandler<ExtremeShapedO
         int inputCount = 0;
         for (Object input : recipe.getInput()) {
             if(input != null) {
-                if (input instanceof ItemStack) {
-                    if (input != null)
-                        inputCount++;
-                } else return false;
+                if(input instanceof List && ((List) input).isEmpty())
+                {
+                    return false;
+                }
+                inputCount++;
             }
         }
         if(inputCount > 81)
