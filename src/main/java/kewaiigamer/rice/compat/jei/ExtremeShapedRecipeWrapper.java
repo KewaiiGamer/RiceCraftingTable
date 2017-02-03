@@ -2,20 +2,25 @@ package kewaiigamer.rice.compat.jei;
 
 
 import kewaiigamer.rice.crafting.ExtremeShapedOreRecipe;
+import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IStackHelper;
 import mezz.jei.api.recipe.wrapper.IShapedCraftingRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper {
 
     private final ExtremeShapedOreRecipe recipe;
+    private final IJeiHelpers jeiHelpers;
 
-    public ExtremeShapedRecipeWrapper(ExtremeShapedOreRecipe recipe)
+    public ExtremeShapedRecipeWrapper(IJeiHelpers jeiHelpers, ExtremeShapedOreRecipe recipe)
     {
+        this.jeiHelpers = jeiHelpers;
         this.recipe = recipe;
         for(Object obj: this.recipe.getInput())
         {
@@ -30,14 +35,14 @@ public class ExtremeShapedRecipeWrapper extends BlankRecipeWrapper {
 
     @Override
     public void getIngredients(IIngredients ingredients) {
-        List<ItemStack> recipeItems = new ArrayList<>();
-        for (Object object : recipe.getInput()) {
-            recipeItems.add((ItemStack)object);
-        }
+        IStackHelper stackHelper = jeiHelpers.getStackHelper();
         ItemStack recipeOutput = recipe.getRecipeOutput();
-        ingredients.setInputs(ItemStack.class, recipeItems);
-        if(recipeOutput != null)
-            ingredients.setOutput(ItemStack.class, recipeOutput);
+
+        List<List<ItemStack>> inputs = stackHelper.expandRecipeItemStackInputs(Arrays.asList(recipe.getInput()));
+
+        ingredients.setInputLists(ItemStack.class, inputs);
+        ingredients.setOutput(ItemStack.class, recipeOutput);
+
     }
 
 }

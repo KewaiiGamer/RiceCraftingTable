@@ -1,4 +1,4 @@
-package kewaiigamer.rice.compat.minetweaker;
+package kewaiigamer.rice.compat.crafttweaker;
 
 import kewaiigamer.rice.compat.jei.JEI;
 import kewaiigamer.rice.crafting.ExtremeCraftingManager;

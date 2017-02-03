@@ -74,7 +74,7 @@ public class BlockRiceCrafting extends Block implements ITileEntityProvider {
             //InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityRiceCrafting) craft);
             for(int i = 0; i < 81; i++){
                 worldIn.spawnEntityInWorld(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(),
-                        craft.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).getStackInSlot(i)));
+                        craft.matrix.getStackInSlot(i)));
             }
         }
 

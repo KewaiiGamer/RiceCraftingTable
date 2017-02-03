@@ -28,7 +28,7 @@ public class JEI extends BlankModPlugin{
         registry.addRecipeCategoryCraftingItem(new ItemStack(ModBlocks.blockRiceCrafting), ExtremeCraftingCategory.UID);
 
         registry.addRecipeHandlers(
-                new ExtremeShapedRecipeHandler(),
+                new ExtremeShapedRecipeHandler(jeiHelpers),
                 new ExtremeShapelessRecipeHandler()
         );
 

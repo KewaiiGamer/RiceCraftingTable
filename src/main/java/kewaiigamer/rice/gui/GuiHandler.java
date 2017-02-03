@@ -1,10 +1,7 @@
 package kewaiigamer.rice.gui;
 
-import kewaiigamer.rice.gui.riceautocraftingtable.ContainerExtremeAutoCrafting;
-import kewaiigamer.rice.gui.riceautocraftingtable.GUIExtremeAutoCrafting;
 import kewaiigamer.rice.gui.ricecraftingtable.ContainerExtremeCrafting;
 import kewaiigamer.rice.gui.ricecraftingtable.GUIExtremeCrafting;
-import kewaiigamer.rice.tile.TileEntityRiceAutoCrafting;
 import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -15,7 +12,6 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 public class GuiHandler implements IGuiHandler {
 
     public static final int GUI_ID_ExtremeCrafting = 0;
-    public static final int GUI_ID_ExtremeAutoCrafting = 1;
 
 
     @Override
@@ -26,10 +22,6 @@ public class GuiHandler implements IGuiHandler {
             TileEntityRiceCrafting containerTileEntity = (TileEntityRiceCrafting) te;
             return new GUIExtremeCrafting(containerTileEntity, new ContainerExtremeCrafting(player.inventory, containerTileEntity));
         }
-        if (te instanceof TileEntityRiceAutoCrafting) {
-            TileEntityRiceAutoCrafting containerTileEntity = (TileEntityRiceAutoCrafting) te;
-            return new GUIExtremeAutoCrafting(containerTileEntity, new ContainerExtremeAutoCrafting(player.inventory, containerTileEntity));
-        }
         return null;
     }
 
@@ -39,9 +31,6 @@ public class GuiHandler implements IGuiHandler {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof TileEntityRiceCrafting) {
             return new ContainerExtremeCrafting(player.inventory, (TileEntityRiceCrafting) te);
-        }
-        if (te instanceof TileEntityRiceAutoCrafting) {
-            return new ContainerExtremeAutoCrafting(player.inventory, (TileEntityRiceAutoCrafting) te);
         }
         return null;
     }

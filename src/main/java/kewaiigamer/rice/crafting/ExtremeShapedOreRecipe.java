@@ -9,10 +9,7 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class ExtremeShapedOreRecipe implements IRecipe {
     //Added in for future ease of change, but hard coded for now.
@@ -204,10 +201,10 @@ public class ExtremeShapedOreRecipe implements IRecipe {
                     if (!OreDictionary.itemMatches((ItemStack) target, slot, false)) {
                         return false;
                     }
-                } else if (target instanceof ArrayList) {
+                } else if (target instanceof List) {
                     boolean matched = false;
 
-                    Iterator<ItemStack> itr = ((ArrayList<ItemStack>) target).iterator();
+                    Iterator<ItemStack> itr = ((List<ItemStack>) target).iterator();
                     while (itr.hasNext() && !matched) {
                         matched = OreDictionary.itemMatches(itr.next(), slot, false);
                     }
