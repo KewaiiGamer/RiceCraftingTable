@@ -3,7 +3,6 @@ package kewaiigamer.rice.compat;
 import kewaiigamer.rice.compat.crafttweaker.CraftTweaker;
 import net.minecraftforge.fml.common.Loader;
 
-
 public class Compat {
 
     public static boolean CompatMT = false;

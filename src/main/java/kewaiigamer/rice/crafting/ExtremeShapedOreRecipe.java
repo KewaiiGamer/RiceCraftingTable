@@ -9,6 +9,8 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
+import javax.annotation.Nonnull;
+
 import java.util.*;
 
 public class ExtremeShapedOreRecipe implements IRecipe {
@@ -163,7 +165,7 @@ public class ExtremeShapedOreRecipe implements IRecipe {
      * Used to check if a recipe matches current crafting inventory
      */
     @Override
-    public boolean matches(InventoryCrafting inv, World world) {
+    public boolean matches(@Nonnull InventoryCrafting inv,@Nonnull World world) {
         for (int x = 0; x <= MAX_CRAFT_GRID_WIDTH - width; x++) {
             for (int y = 0; y <= MAX_CRAFT_GRID_HEIGHT - height; ++y) {
                 if (checkMatch(inv, x, y, false)) {
