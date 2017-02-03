@@ -1,9 +1,0 @@
-{
-    "parent": "rice:block/riceautocrafting_table",
-    "textures": {
-        "particle": "rice:blocks/crafting_table_top",
-        "top": "rice:blocks/crafting_table_top",
-        "side": "rice:blocks/auto_crafting_table_side",
-        "bottom": "rice:blocks/auto_crafting_table_side"
-    }
-}
