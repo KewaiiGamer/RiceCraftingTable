@@ -25,6 +25,8 @@ public class ExtremeCrafting {
     @ZenMethod
     public static void addShapeless(IItemStack output, IIngredient[] ingredients) {
 
+
+
         MineTweakerAPI.apply(new Add(new ExtremeShapelessRecipe(toStack(output), toList(ingredients))));
     }
 
@@ -179,7 +181,7 @@ public class ExtremeCrafting {
             return null;
         Object[] ingredients = new Object[list.length];
         for (int x = 0; x < list.length; x++) {
-            ingredients[x] = toObject(list[x]);
+            ingredients[x] = toActualObject(list[x]);
         }
         return ingredients;
     }

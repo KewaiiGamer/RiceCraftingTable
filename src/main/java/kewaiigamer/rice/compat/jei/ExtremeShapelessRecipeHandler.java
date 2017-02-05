@@ -1,12 +1,23 @@
 package kewaiigamer.rice.compat.jei;
 
 import kewaiigamer.rice.crafting.ExtremeShapelessRecipe;
+import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
+import java.util.List;
+
 public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShapelessRecipe>{
+
+    private IJeiHelpers jeiHelpers;
+
+    public ExtremeShapelessRecipeHandler(IJeiHelpers jeiHelpers)
+    {
+        this.jeiHelpers = jeiHelpers;
+    }
+
     @Override
     public Class<ExtremeShapelessRecipe> getRecipeClass() {
         return ExtremeShapelessRecipe.class;
@@ -25,7 +36,7 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
 
     @Override
     public IRecipeWrapper getRecipeWrapper(ExtremeShapelessRecipe recipe) {
-        return new ExtremeShapelessRecipeWrapper(recipe);
+        return new ExtremeShapelessRecipeWrapper(jeiHelpers, recipe);
     }
 
     @Override
@@ -35,11 +46,13 @@ public class ExtremeShapelessRecipeHandler implements IRecipeHandler<ExtremeShap
 
         int inputCount = 0;
         for (Object input : recipe.recipeItems) {
-            if(input instanceof ItemStack) {
-                if (input != null)
-                    inputCount++;
+            if(input != null) {
+                if(input instanceof List && ((List) input).isEmpty())
+                {
+                    return false;
+                }
+                inputCount++;
             }
-            else return false;
         }
 
         if(inputCount > 81)

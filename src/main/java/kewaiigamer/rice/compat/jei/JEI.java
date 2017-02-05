@@ -29,7 +29,7 @@ public class JEI extends BlankModPlugin{
 
         registry.addRecipeHandlers(
                 new ExtremeShapedRecipeHandler(jeiHelpers),
-                new ExtremeShapelessRecipeHandler()
+                new ExtremeShapelessRecipeHandler(jeiHelpers)
         );
 
         registry.addRecipeClickArea(GUIExtremeCrafting.class, 176,80,23, 15, ExtremeCraftingCategory.UID);
