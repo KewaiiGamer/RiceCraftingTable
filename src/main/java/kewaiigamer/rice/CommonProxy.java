@@ -13,7 +13,6 @@ import static kewaiigamer.rice.Rice.Instance;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
-
         Compat.checkMods();
         ModBlocks.init();
     }

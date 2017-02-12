@@ -7,7 +7,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
-
 public class TileEntityRiceCrafting extends TileEntity implements ICapabilityProvider {
     public ItemCraftHandler matrix = new ItemCraftHandler(81, this);
     private ItemStack result;

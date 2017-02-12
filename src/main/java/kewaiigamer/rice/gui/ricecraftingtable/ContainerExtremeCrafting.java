@@ -25,7 +25,6 @@ public class ContainerExtremeCrafting extends Container {
     private TileEntityRiceCrafting te;
     private IItemHandler handler;
 
-
     public ContainerExtremeCrafting(InventoryPlayer player, TileEntityRiceCrafting te) {
         this.te = te;
         handler = te.matrix;
@@ -122,6 +121,4 @@ public class ContainerExtremeCrafting extends Container {
 
         return itemstack;
     }
-
-
 }

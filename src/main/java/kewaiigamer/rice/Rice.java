@@ -8,12 +8,12 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Rice.MODID, name = Rice.NAME, version = Rice.VERSION)
+@Mod(modid = Rice.MODID, name = Rice.NAME, version = Rice.VERSION, dependencies = "required-after:kelib@[1.1.0,]")
 public class Rice {
 
     public static final String MODID = "rice";
     public static final String NAME = "Rice";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.0.2";
     public static final String COMMON_PROXY_CLASS = "kewaiigamer.rice.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "kewaiigamer.rice.ClientProxy";
     @Instance(MODID)
@@ -21,7 +21,6 @@ public class Rice {
 
     @SidedProxy(serverSide = COMMON_PROXY_CLASS, clientSide = CLIENT_PROXY_CLASS)
     public static CommonProxy proxy = new CommonProxy();
-
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {

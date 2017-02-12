@@ -22,5 +22,4 @@ public class ItemCraftHandler extends ItemStackHandler {
             te.setResult(ExtremeCraftingManager.getInstance().findMatchingRecipe(this.crafting, te.getWorld()));
         super.onContentsChanged(slot);
     }
-
 }

@@ -24,9 +24,6 @@ public class ExtremeCrafting {
 
     @ZenMethod
     public static void addShapeless(IItemStack output, IIngredient[] ingredients) {
-
-
-
         MineTweakerAPI.apply(new Add(new ExtremeShapelessRecipe(toStack(output), toList(ingredients))));
     }
 
@@ -67,7 +64,6 @@ public class ExtremeCrafting {
             if(Loader.isModLoaded("JEI") && JEI.recipeRegistry != null) {
                 JEI.recipeRegistry.addRecipe(recipe);
             }
-
         }
 
         @Override

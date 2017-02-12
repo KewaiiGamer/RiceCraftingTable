@@ -4,7 +4,6 @@ import kewaiigamer.rice.tile.TileEntityRiceCrafting;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.item.ItemStack;
 
-
 public class InventoryRiceCraftResult extends InventoryCraftResult {
 
     private TileEntityRiceCrafting craft;
@@ -12,7 +11,6 @@ public class InventoryRiceCraftResult extends InventoryCraftResult {
     public InventoryRiceCraftResult(TileEntityRiceCrafting te)
     {
         craft = te;
-
     }
 
     @Override

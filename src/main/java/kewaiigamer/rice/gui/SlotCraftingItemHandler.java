@@ -10,7 +10,6 @@ import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nullable;
 
-
 public class SlotCraftingItemHandler extends Slot {
     private final InventoryRiceCrafting craftingInv;
     private final IItemHandler matrix;

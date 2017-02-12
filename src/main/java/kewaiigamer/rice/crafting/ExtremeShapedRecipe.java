@@ -73,7 +73,6 @@ public class ExtremeShapedRecipe implements IRecipe {
                         itemstack = this.recipeItems[i1 + j1 * this.recipeWidth];
                     }
                 }
-
                 ItemStack itemstack1 = matrix.getStackInRowAndColumn(k, l);
 
                 if (itemstack1 != null || itemstack != null) {
@@ -100,7 +99,6 @@ public class ExtremeShapedRecipe implements IRecipe {
      */
     public ItemStack getCraftingResult(InventoryCrafting p_77572_1_) {
         return this.getRecipeOutput().copy();
-
     }
 
     /**
@@ -109,5 +107,4 @@ public class ExtremeShapedRecipe implements IRecipe {
     public int getRecipeSize() {
         return this.recipeWidth * this.recipeHeight;
     }
-
 }

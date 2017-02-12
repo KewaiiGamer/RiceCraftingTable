@@ -1,5 +1,6 @@
 package kewaiigamer.rice.blocks;
 
+import kewaiigamer.rice.utils.RiceBlockUtils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -9,7 +10,7 @@ public class ModBlocks {
 
     @SideOnly(Side.CLIENT)
     public static void registerModels() {
-        blockRiceCrafting.initModel();
+        RiceBlockUtils.registerRiceBlockRender(blockRiceCrafting, "rice_crafting_table");
     }
 
     public static void init() {

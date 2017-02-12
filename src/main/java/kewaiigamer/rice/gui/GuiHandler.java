@@ -13,7 +13,6 @@ public class GuiHandler implements IGuiHandler {
 
     public static final int GUI_ID_ExtremeCrafting = 0;
 
-
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         BlockPos pos = new BlockPos(x, y, z);

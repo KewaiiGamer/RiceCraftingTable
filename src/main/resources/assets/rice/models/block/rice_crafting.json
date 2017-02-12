@@ -1,5 +1,5 @@
 {
-  "parent": "rice:block/ricecrafting_table",
+  "parent": "rice:block/rice_crafting_table",
   "textures": {
     "particle": "rice:blocks/crafting_table_top",
     "top": "rice:blocks/crafting_table_top",
