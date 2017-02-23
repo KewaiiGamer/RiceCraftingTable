@@ -12,9 +12,8 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
-
-version = "1.0.2-1.10.2"
-group= "kewaiigamer.rice" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = version_major + "." + version_minor + "." + version_patch + "." + version_build + "-" + mc_version
+group= "info.kewaiigamer.rice" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "RiceCraftingTable"
 
 sourceCompatibility = targetCompatibility = "1.7" // Need this here so eclipse task generates correctly.
